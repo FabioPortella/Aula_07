@@ -8,4 +8,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+    // Código alterado com a adição de ProgressBarHorizontal no lugar de ProgressBar
 }
