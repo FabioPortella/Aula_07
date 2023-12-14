@@ -10,22 +10,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // cria o objeto RecyclerView
         var r = findViewById<RecyclerView>(R.id.rv)
-
-        // define a classe atual como gerenciadora do layout
         r.layoutManager = LinearLayoutManager(this)
 
-        // cria um vetor de strings
-        var arr = Array<String>(80){" Lista de strings: $it"}
+        // definindo o array de produtos
+        var arr = ArrayList<Produto>()
 
-        // define o adaptador
+        // código alterado
+
+        arr.add(Produto(android.R.drawable.ic_media_play, "Mini Player", "Xing Ling", "R$ 120,00"))
+        arr.add(Produto(android.R.drawable.ic_menu_camera, "Câmera AS 50", "Canon", "R$ 1.200,00"))
+        arr.add(Produto(android.R.drawable.ic_menu_call, "Celular S20E",  "Samsung","R$ 1.500,00"))
+        arr.add(Produto(android.R.drawable.ic_menu_camera, "Câmera AS 100", "Canon", "R$ 1.800,00"))
+        // adicionando os demais produtos fictícios de 5 a 30
+        for (i in 5 .. 30)
+            arr.add(Produto(android.R.drawable.ic_menu_edit,"Produto $i", "Marca","R$ $i,99"))
+        // definindo o adapter
         var adapter = CustomAdapter(arr)
-
-        // vincula a lista RecyclerView ao adaptador definido na linha anterior
         r.adapter = adapter
     }
 
-    // alteração do cógigo original -> var arr = Array<String>(100){"$it"}
-    // para                         -> var arr = Array<String>(80){" Lista de strings: $it"}
+    // Alteração de código - foi adicionado Marca.
+    // os campos agora são: Imagem, Titulo, Marca e Valor
+    // procedi algumas alterações em produto e Layout para que
+    // o campo valor não aparecesse mais como "descrição" no código.
 }
